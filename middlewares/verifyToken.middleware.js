@@ -4,7 +4,7 @@ const verifyToken = async (req, res, next) => {
   const token = req.headers.token;
   if (token) {
     const accessToken = token.split(" ")[1];
-    await jwt.verify(accessToken, process.env.JWT_ACCESS_KEY, function (err, decoded) {
+    await jwt.verify(accessToken, "present", function (err, decoded) {
       if (err) {
         return res.status(403).send("token is invalid");
       }

@@ -38,7 +38,7 @@ const authController = {
           message: "username or password are incorrect",
         });
       }
-      const accessToken = await jwt.sign({ username: userInfo.username }, process.env.JWT_ACCESS_KEY, {
+      const accessToken = await jwt.sign({ username: userInfo.username }, "present", {
         expiresIn: "1h",
       });
       const { password, ...others } = userInfo._doc;

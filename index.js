@@ -15,9 +15,12 @@ app.use(express.json());
 dotenv.config();
 
 // mongoose.set("strictQuery", true);
-mongoose.connect(process.env.MONGODB_URL, () => {
-  console.log("connecting to db");
-});
+mongoose.connect(
+  "mongodb+srv://dbUser:mylove@cluster0.iika6vi.mongodb.net/chat_app_test?retryWrites=true&w=majority",
+  () => {
+    console.log("connecting to db");
+  }
+);
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
