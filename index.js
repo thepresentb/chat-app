@@ -22,10 +22,10 @@ mongoose.connect(
   }
 );
 
-app.use("/api/auth", authRouter);
-app.use("/api/users", userRouter);
-app.use("/api/rooms", roomRouter);
-app.use("/api/messages", messageRouter);
+app.use("/api/auth", cors(), authRouter);
+app.use("/api/users", cors(), userRouter);
+app.use("/api/rooms", cors(), roomRouter);
+app.use("/api/messages", cors(), messageRouter);
 
 const server = http.createServer(app);
 const io = new Server(server, {
