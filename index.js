@@ -30,10 +30,10 @@ app.use("/api/messages", messageRouter);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://chat-app-front-one.vercel.app",
+    // origin: "https://chat-app-front-one.vercel.app",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true,
+    // allowedHeaders: ["my-custom-header"],
+    // credentials: true,
   },
 });
 
