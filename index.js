@@ -32,7 +32,7 @@ const io = new Server(server, {
   cors: {
     origin: "https://localhost:8080",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-header"],
+    allowedHeaders: ["my-custom-header"],
     credentials: true,
   },
 });
