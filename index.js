@@ -30,7 +30,7 @@ app.use("/api/messages", messageRouter);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://localhost:3000",
+    origin: "https://localhost:8080",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-header"],
     credentials: true,
@@ -119,6 +119,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(8080, () => {
+server.listen(3000, () => {
   console.log("server running");
 });
