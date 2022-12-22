@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 dotenv.config();
 
-// mongoose.set("strictQuery", true);
+mongoose.set("strictQuery", true);
 mongoose.connect(
   "mongodb+srv://dbUser:mylove@cluster0.iika6vi.mongodb.net/chat_app_test?retryWrites=true&w=majority",
   () => {
