@@ -11,7 +11,7 @@ const Router = require("express").Router();
 
 Router.post("/create", verifyToken, create);
 Router.post("/searchMessage", verifyToken, searchMessage);
-Router.get("/getLastMessage/:idUser", verifyToken, getLastMessages);
+Router.get("/getLastMessage/:idUser", getLastMessages);
 Router.post("/addSeenUser", verifyToken, addSeenUser);
 Router.post("/createSeenUser", createSeenUser);
 
