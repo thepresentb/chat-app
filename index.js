@@ -9,6 +9,7 @@ const roomRouter = require("./routers/room.router");
 const messageRouter = require("./routers/message.router");
 const http = require("http");
 const { Server } = require("socket.io");
+const setAccessControl = require("./middlewares/setAccessControl");
 
 app.use(cors());
 app.use(express.json());
@@ -22,10 +23,10 @@ mongoose.connect(
   }
 );
 
-app.use("/api/auth", authRouter);
-app.use("/api/users", userRouter);
-app.use("/api/rooms", roomRouter);
-app.use("/api/messages", messageRouter);
+app.use("/api/auth", setAccessControl, authRouter);
+app.use("/api/users", setAccessControl, userRouter);
+app.use("/api/rooms", setAccessControl, roomRouter);
+app.use("/api/messages", setAccessControl, messageRouter);
 
 const server = http.createServer(app);
 const io = new Server(server, {
